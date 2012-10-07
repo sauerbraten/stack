@@ -1,6 +1,6 @@
 # Radix
 
-A basic and very simple implementation of a stack in Go. For more information on what a stack is, see this [wikipedia article](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Software_stacks).
+A basic and very simple implementation of a stack in Go. For more information on what a stack is, read this [wikipedia article](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)#Software_stacks).
 
 ## Usage
 
