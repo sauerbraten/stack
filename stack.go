@@ -1,24 +1,29 @@
 package stack
 
+// An element
 type Element struct {
 	next  *Element
 	value interface{}
 }
 
+// A stack.
 type Stack struct {
 	top *Element
 }
 
+// New returns an initialized stack.
 func New() *Stack {
 	return &Stack{nil}
 }
 
+// Push puts a new element on top of the stack.
 func (s *Stack) Push(value interface{}) {
 	temp := s.top
 	newE := &Element{temp, value}
 	s.top = newE
 }
 
+// Pop removes the top element and returns it.
 func (s *Stack) Pop() interface{} {
 	if s.top == nil {
 		return nil
@@ -29,6 +34,7 @@ func (s *Stack) Pop() interface{} {
 	return v
 }
 
+// Size returns the amount of elements in the stack.
 func (s *Stack) Size() int {
 	i := 0
 
