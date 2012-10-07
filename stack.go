@@ -1,14 +1,14 @@
 package stack
 
-// An element
-type Element struct {
-	next  *Element
+// An element.
+type element struct {
+	next  *element
 	value interface{}
 }
 
 // A stack.
 type Stack struct {
-	top *Element
+	top *element
 }
 
 // New returns an initialized stack.
@@ -19,7 +19,7 @@ func New() *Stack {
 // Push puts a new element on top of the stack.
 func (s *Stack) Push(value interface{}) {
 	temp := s.top
-	newE := &Element{temp, value}
+	newE := &element{temp, value}
 	s.top = newE
 }
 
