@@ -22,7 +22,7 @@ func (s *Stack) Push(value interface{}) {
 	temp := s.top
 	newE := &element{temp, value}
 	s.top = newE
-	size++
+	s.size++
 }
 
 // Pop removes the top element and returns it.
@@ -33,7 +33,7 @@ func (s *Stack) Pop() interface{} {
 
 	v := s.top.value
 	s.top = s.top.next
-	size--
+	s.size--
 	return v
 }
 
