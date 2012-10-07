@@ -100,6 +100,9 @@ func ExampleStack() {
 	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
 	printStack(s)
 
+	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
+	printStack(s)
+
 	// Output:
 	// - begin stack -
 	// 	6
@@ -121,6 +124,11 @@ func ExampleStack() {
 	// -  end stack  -
 	//
 	// * popped element: 4 *
+	//
+	// - begin stack -
+	// -  end stack  -
+	//
+	// * popped element: <nil> *
 	//
 	// - begin stack -
 	// -  end stack  -
