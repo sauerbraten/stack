@@ -49,7 +49,7 @@ Using a stack is pretty straightforward:
 	fmt.Println(s.Size())
 	// prints: 0
 
-### Documentation
+## Documentation
 
 For full package documentation, visit http://go.pkgdoc.org/github.com/sauerbraten/stack.
 
