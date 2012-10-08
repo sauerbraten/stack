@@ -6,13 +6,10 @@ import (
 )
 
 func printStack(s *Stack) {
-	e := s.top
-
 	fmt.Println("- begin stack -")
 
-	for e != nil {
-		fmt.Printf("\t%v\n", e.value)
-		e = e.next
+	for i := range s.slice {
+		fmt.Printf("\t%v\n", s.slice[len(s.slice)-1-i])
 	}
 
 	fmt.Println("-  end stack  -")
