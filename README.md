@@ -34,17 +34,17 @@ Using a stack is pretty straightforward:
 
 	// pop the "four" from the stack
 	fmt.Println(s.Pop())
-	// prints: four
+	// prints: four <nil>
 
 	// now, the top element is '3'
 
 	// pop the '3' from the stack
 	fmt.Println(s.Pop())
-	// prints: 3
+	// prints: 3 <nil>
 
 	// stack is now empty
 	fmt.Println(s.Pop())
-	// prints: <nil>
+	// prints: <nil> stack is empty
 
 	fmt.Println(s.Size())
 	// prints: 0
