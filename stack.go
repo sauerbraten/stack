@@ -1,5 +1,9 @@
 package stack
 
+import (
+	"errors"
+)
+
 // A stack.
 type Stack struct {
 	slice []interface{}
@@ -16,16 +20,16 @@ func (s *Stack) Push(value interface{}) {
 }
 
 // Pop removes the top element and returns it.
-func (s *Stack) Pop() interface{} {
+func (s *Stack) Pop() (interface{}, error) {
 	if len(s.slice) == 0 {
-		return nil
+		return nil, errors.New("stack is empty")
 	}
 
 	temp := s.slice[len(s.slice)-1]
 
 	s.slice = s.slice[0 : len(s.slice)-1]
 
-	return temp
+	return temp, nil
 }
 
 // Size returns the amount of elements in the stack.
