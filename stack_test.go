@@ -8,8 +8,8 @@ import (
 func printStack(s *Stack) {
 	fmt.Println("- begin stack -")
 
-	for i := range s.slice {
-		fmt.Printf("\t%v\n", s.slice[len(s.slice)-1-i])
+	for i := range *s {
+		fmt.Printf("\t%v\n", (*s)[len(*s)-1-i])
 	}
 
 	fmt.Println("-  end stack  -")
@@ -49,7 +49,7 @@ func TestSize(t *testing.T) {
 func TestStack(t *testing.T) {
 	s := New()
 
-	if s.Pop() != nil {
+	if val, err := s.Pop(); val != nil || err == nil {
 		t.Log("Push/Pop did not work!")
 		t.Fail()
 	}
@@ -58,22 +58,22 @@ func TestStack(t *testing.T) {
 	s.Push("5")
 	s.Push(6)
 
-	if s.Pop().(int) != 6 {
+	if val, err := s.Pop(); val.(int) != 6 || err != nil {
 		t.Log("Push/Pop did not work!")
 		t.Fail()
 	}
 
-	if s.Pop().(string) != "5" {
+	if val, err := s.Pop(); val.(string) != "5" || err != nil {
 		t.Log("Push/Pop did not work!")
 		t.Fail()
 	}
 
-	if s.Pop().(int) != 4 {
+	if val, err := s.Pop(); val.(int) != 4 || err != nil {
 		t.Log("Push/Pop did not work!")
 		t.Fail()
 	}
 
-	if s.Pop() != nil {
+	if val, err := s.Pop(); val != nil || err == nil {
 		t.Log("Push/Pop did not work!")
 		t.Fail()
 	}
@@ -88,16 +88,20 @@ func ExampleStack() {
 
 	printStack(s)
 
-	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
+	val, err := s.Pop()
+	fmt.Printf("\n* popped element: %v with error: %v*\n\n", val, err)
 	printStack(s)
 
-	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
+	val, err = s.Pop()
+	fmt.Printf("\n* popped element: %v with error: %v*\n\n", val, err)
 	printStack(s)
 
-	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
+	val, err = s.Pop()
+	fmt.Printf("\n* popped element: %v with error: %v*\n\n", val, err)
 	printStack(s)
 
-	fmt.Printf("\n* popped element: %v *\n\n", s.Pop())
+	val, err = s.Pop()
+	fmt.Printf("\n* popped element: %v with error: %v*\n\n", val, err)
 	printStack(s)
 
 	// Output:
@@ -107,25 +111,25 @@ func ExampleStack() {
 	// 	4
 	// -  end stack  -
 	//
-	// * popped element: 6 *
+	// * popped element: 6 with error: <nil>*
 	// 
 	// - begin stack -
 	// 	5
 	// 	4
 	// -  end stack  -
 	//
-	// * popped element: 5 *
+	// * popped element: 5 with error: <nil>*
 	//
 	// - begin stack -
 	// 	4
 	// -  end stack  -
 	//
-	// * popped element: 4 *
+	// * popped element: 4 with error: <nil>*
 	//
 	// - begin stack -
 	// -  end stack  -
 	//
-	// * popped element: <nil> *
+	// * popped element: <nil> with error: stack is empty*
 	//
 	// - begin stack -
 	// -  end stack  -
