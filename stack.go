@@ -19,7 +19,7 @@ func (s *Stack) Push(value interface{}) {
 	s.slice = append(s.slice, value)
 }
 
-// Pop removes the top element and returns it.
+// Pop removes the top element and returns it, along with an error that is only != nil if the stack is empty.
 func (s *Stack) Pop() (interface{}, error) {
 	if len(s.slice) == 0 {
 		return nil, errors.New("stack is empty")
