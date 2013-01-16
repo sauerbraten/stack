@@ -56,7 +56,7 @@ For full package documentation, visit http://godoc.org/github.com/sauerbraten/st
 ## License
 
 This code is licensed under a BSD License:
-
+	
 	Copyright (c) 2012 Alexander Willing. All rights reserved.
 	
 		* Redistributions of source code must retain the above copyright
