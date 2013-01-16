@@ -51,7 +51,7 @@ Using a stack is pretty straightforward:
 
 ## Documentation
 
-For full package documentation, visit http://go.pkgdoc.org/github.com/sauerbraten/stack.
+For full package documentation, visit http://godoc.org/github.com/sauerbraten/stack.
 
 ## License
 
